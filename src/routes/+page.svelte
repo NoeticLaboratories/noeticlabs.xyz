@@ -17,37 +17,37 @@
         {
             icon: LogoHf,
             label: "Hugging Face",
-            url: "https://huggingface.co/noeticlabs",
+            url: "https://huggingface.co/NoeticLabs",
         },
         {
             icon: LogoGithub,
             label: "GitHub",
-            url: "https://github.com/noeticlabs",
+            url: "https://github.com/NoeticLaboratories",
         },
-        {
-            icon: LogoLinkedin,
-            label: "LinkedIn",
-            url: "https://linkedin.com/company/noeticlabs",
-        },
+        // {
+        //     icon: LogoLinkedin,
+        //     label: "LinkedIn",
+        //     url: "https://linkedin.com/company/noeticlabs",
+        // },
     ];
 
     // Content for the main sections
     const latestNews = [
         {
-            id: "news1",
+            id: "Lumen-8b-05-2025",
             title: "Lumen-8b-05-2025 Launch",
             date: "May 8, 2025",
             summary:
-                "Introducing our first AI model, designed to enhance natural language understanding...",
+                "Introducing Lumen, our first LLM specialized in assisting with research",
             url: "/news/ai-model-launch",
         },
         {
-            id: "news2",
-            title: "Noetic Labs Founded",
+            id: "NLDS",
+            title: "Noetic Labs Design System",
             date: "April 1, 2025",
             summary:
                 "Noetic Labs begins its journey to research and build better AI tools for the future...",
-            url: "/news/noetic-labs-founded",
+            url: "https://design.noeticlabs.xyz",
         },
     ];
 
@@ -57,10 +57,10 @@
             id: "lumen-8b-05-2025",
             title: "Lumen-8b-05-2025",
             description:
-                "Our first AI language model, designed to be your next research assistant.",
+                "Our first fine-tuned AI language model, specifically optimized for academic research and complex reasoning tasks. Built on Qwen3-8B with specialized datasets for enhanced performance.",
             status: "Available Now",
             icon: Model,
-            url: "/projects/noeticnlp",
+            url: "https://huggingface.co/NoeticLabs/Lumen-8b-05-2025",
         },
         {
             id: "NLDS",
@@ -74,9 +74,17 @@
 </script>
 
 <div class="page-container">
+    <div class="construction-banner">
+        <p>
+            🚧 This website is currently under construction. Some links may not
+            work! 🚧
+        </p>
+    </div>
+
     <header>
+        <!-- <div class="header-background"></div> -->
         <div class="logo-container">
-            <h1 class="company-name">Noetic Labs</h1>
+            <!-- <h1 class="company-name">Noetic Labs</h1> -->
             <p class="tagline">Researching a better future</p>
         </div>
         <div class="social-links">
@@ -101,9 +109,13 @@
                 <h2 class="hero-title">AI Research for Human Progress</h2>
                 <div>
                     <p class="hero-description">
-                        We're building the next generation of intuitive AI
-                        interfaces and models that make artificial intelligence
-                        more accessible and practical.
+                        At Noetic Labs, we're advancing AI with purpose. Our
+                        specialized language models, thoughtful datasets, and
+                        intuitive interfaces are designed to enhance human
+                        potential and solve practical challenges. From research
+                        assistants to design systems, we're laying the
+                        foundation for more accessible and effective AI
+                        experiences.
                     </p>
                     <div class="hero-actions">
                         <Button kind="primary" href="/about"
@@ -141,16 +153,16 @@
         <section class="content-section">
             <h2>Who We Are</h2>
             <p>
-                Noetic Labs is a pioneering startup focused on building
-                intuitive AI interfaces and advanced language models. Our
-                mission is to make artificial intelligence more accessible and
-                practical for developers and businesses worldwide.
+                Noetic Labs is a student-led innovation lab exploring the
+                frontiers of AI, technology, and human connection. We're
+                passionate about making AI more accessible and impactful through
+                innovative research and thoughtful implementation.
             </p>
             <p>
-                Founded by a team of AI researchers and UX experts, we're
-                committed to creating solutions that help organizations leverage
-                the full potential of AI technology through elegant,
-                user-friendly interfaces and powerful models.
+                Founded in early 2025, our team combines expertise in machine
+                learning, design thinking, and software development to create
+                solutions that bridge the gap between cutting-edge AI
+                capabilities and real-world human needs.
             </p>
             <Button kind="primary" href="/about">Learn More About Us</Button>
         </section>
@@ -217,7 +229,9 @@
                 Interested in our research or want to collaborate? We'd love to
                 hear from you.
             </p>
-            <Button kind="primary" href="/contact">Get in Touch</Button>
+            <Button kind="primary" href="mailto:info@noeticlabs.xyz"
+                >Get in Touch</Button
+            >
         </section>
     </main>
 
@@ -234,14 +248,57 @@
         box-sizing: border-box;
     }
 
+    .construction-banner {
+        background-color: var(--nlds-accent-primary);
+        border: 2px solid;
+        border-left: 12px solid;
+        border-radius: 2px;
+        border-color: var(--nlds-accent-primary-active);
+        text-align: center;
+        padding: 0.5rem;
+        font-weight: 500;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .construction-banner p {
+        color: white;
+    }
+
     /* Header styles */
     header {
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        height: 50vh;
+        height: auto;
         justify-content: center;
+        /* background-color: var(--nlds-accent-primary); */
+        /* margin: 1rem 0; */
+        padding: 3rem 0;
+        margin: 2rem 0;
+
+        border-left: 12px solid;
+        border-bottom: 2px solid;
+        border-color: var(--nlds-text-primary);
+        border-radius: 2px;
+    }
+
+    .header-background {
+        position: absolute;
+        top: 0;
+        width: 100vw; /* More elongated horizontally */
+        height: 500px; /* Lower height for a flatter look */
+        background-color: var(--nlds-accent-primary);
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    .logo-container,
+    .social-links {
+        position: relative;
+        z-index: 1;
     }
 
     .logo-container {
@@ -256,10 +313,11 @@
     }
 
     .tagline {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 1rem;
+        font-family: "Alegreya", serif;
+        font-style: normal;
+        font-size: 3.5rem;
         margin: 0.5rem 0 0;
-        color: var(--nlds-text-secondary);
+        color: var(--nlds-text-primary);
     }
 
     .social-links {
@@ -275,7 +333,8 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: var(--nlds-layer-accent-01);
+        border: 1px solid;
+        border-color: var(--nlds-text-primary);
         color: var(--nlds-text-primary);
         transition:
             background-color 0.2s,
@@ -283,7 +342,7 @@
     }
 
     .social-link:hover {
-        background-color: var(--nlds-layer-accent-hover-01);
+        background-color: var(--nlds-bg-secondary);
         transform: scale(1.1);
     }
 
@@ -302,12 +361,11 @@
     }
 
     .hero-content {
-        flex: 1;
+        flex: 2;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 1rem 0;
     }
 
     .hero-image {
@@ -316,7 +374,7 @@
     }
 
     .hero-title {
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: lighter;
         margin-bottom: 1rem;
         color: var(--nlds-text-primary);
@@ -346,22 +404,26 @@
         align-items: center;
         gap: 10px;
         padding: 1rem;
-        background-color: var(--nlds-bg-secondary);
+        background-color: var(--nlds-bg-primary);
         text-decoration: none;
         color: var(--nlds-text-primary);
-        border-radius: 4px;
+
+        border-bottom: 2px solid;
+        border-left: 12px solid;
+        border-radius: 2px;
+        border-color: var(--nlds-text-primary);
     }
 
     .news-item:hover {
-        background-color: var(--nlds-accent-bg-hover);
+        background-color: var(--nlds-bg-secondary);
     }
 
     .news-label {
         font-weight: normal;
         color: white; /* Better contrast on purple */
-        background-color: #5d3fd3; /* Iris */
+        background-color: var(--nlds-accent-primary);
         padding: 2px 6px;
-        border-radius: 3px;
+        border-radius: 2px;
     }
 
     .news-summary {
@@ -418,8 +480,8 @@
         color: var(--nlds-text-secondary);
         background-color: var(--nlds-layer-accent-01);
         padding: 4px 8px;
-        border-radius: 4px;
         margin-bottom: 1rem;
+        border-radius: 2px;
     }
 
     .project-description {
@@ -437,7 +499,6 @@
     .research-area {
         padding: 1.5rem;
         background-color: var(--nlds-bg-secondary);
-        border-radius: 4px;
     }
 
     .research-area h3 {
@@ -449,7 +510,6 @@
         text-align: center;
         padding: 3rem;
         background-color: var(--nlds-bg-secondary);
-        border-radius: 4px;
     }
 
     .contact-text {

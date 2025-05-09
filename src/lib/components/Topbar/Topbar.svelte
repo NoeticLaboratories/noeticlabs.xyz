@@ -1,6 +1,8 @@
 <script>
     import { onMount } from "svelte";
+
     import { Select } from "@noeticlabs/nlds-svelte";
+
     import { theme, applyInitialTheme } from "$lib/stores/themeStore.js";
 
     // Options for the theme selector
@@ -12,12 +14,48 @@
         { value: "b100", label: "Black 100" },
     ];
 
+    // Variables to track scroll behavior
+    let prevScrollY = 0;
+    let topbarRef;
+    let topbarHeight = 0;
+    let state = "normal"; // 'normal', 'hidden', or 'visible'
+
     onMount(() => {
         applyInitialTheme();
+
+        topbarHeight = topbarRef.offsetHeight;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // If we've scrolled past the height of the topbar
+            if (currentScrollY <= topbarHeight) {
+                state = "normal";
+            } else {
+                // Past the topbar height
+                if (state === "normal") {
+                    // When first scrolling past, immediately hide
+                    state = "hidden";
+                } else {
+                    // Toggle based on scroll direction
+                    state = currentScrollY < prevScrollY ? "visible" : "hidden";
+                }
+            }
+
+            prevScrollY = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
     });
 </script>
 
-<header class="topbar">
+<!-- Placeholder div to prevent content jump when topbar becomes fixed -->
+<!-- {#if state !== "normal"}
+    <div style="height: {topbarHeight}px;"></div>
+{/if} -->
+
+<header class="topbar state-{state}" bind:this={topbarRef}>
     <div class="topbar-content">
         <div class="topbar-left">
             <div class="logo">
@@ -41,12 +79,36 @@
 <style>
     .topbar {
         background-color: var(--nlds-bg-primary);
-        position: relative;
+        border-bottom: 1px solid var(--nlds-border-color);
         top: 0;
         left: 0;
         right: 0;
         padding: 0.75rem 1.5rem;
         z-index: 1000;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    /* Normal document flow */
+    .topbar.state-normal {
+        position: fixed;
+    }
+
+    /* Fixed but hidden state */
+    .topbar.state-hidden {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%); /* Move it off-screen */
+    }
+
+    /* Fixed and visible state */
+    .topbar.state-visible {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(0); /* Bring it back on screen */
     }
 
     .topbar-content {
@@ -75,7 +137,7 @@
 
     .logo h1 {
         font-size: 1.1rem;
-        font-weight: 600;
+        font-weight: bold;
         color: var(--nlds-text-primary);
         margin: 0;
     }

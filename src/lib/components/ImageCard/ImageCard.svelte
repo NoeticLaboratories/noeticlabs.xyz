@@ -9,9 +9,7 @@
     export let isDarkImage = true; // Determines text/arrow color based on background
 
     // Compute text color based on image darkness
-    $: textColor = isDarkImage
-        ? "var(--nlds-inverse-01)"
-        : "var(--nlds-text-primary)";
+    $: textColor = isDarkImage ? "white" : "black";
 
     // Handle click if link is provided
     function handleClick() {

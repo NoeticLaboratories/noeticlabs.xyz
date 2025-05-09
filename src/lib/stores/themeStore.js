@@ -7,7 +7,7 @@ const STORAGE_KEY = "preferred-theme";
 // Function to get the initial theme
 function getInitialTheme() {
   if (!browser) {
-    return "white"; // Default for SSR or non-browser env
+    return "b10"; // Default for SSR or non-browser env
   }
 
   // 1. Check localStorage
