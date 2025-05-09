@@ -14,7 +14,9 @@ const config = {
     adapter: adapter({
       out: "build", // output directory (default is 'build')
       precompress: true, // enable Gzip and Brotli compression (recommended)
-      envPrefix: "", // prefix for environment variables
+      env: {
+        port: "PORT",
+      },
     }),
   },
 };
