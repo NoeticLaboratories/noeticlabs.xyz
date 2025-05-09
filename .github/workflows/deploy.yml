@@ -24,7 +24,7 @@ jobs:
 
             # Build the SvelteKit Application
             - name: Build SvelteKit App
-              run: npm run build:app
+              run: npm run build
 
             # Deploy Node Server
             - name: Deploy Node Build to VPS
