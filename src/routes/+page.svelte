@@ -3,6 +3,7 @@
     import { Card } from "@noeticlabs/nlds-svelte";
     import { Button } from "@noeticlabs/nlds-svelte";
     import ImageCard from "$lib/components/ImageCard/ImageCard.svelte";
+    import SpacerRectangle from "$lib/components/SpacerRectangle/SpacerRectangle.svelte";
 
     // Import carbon icons
     import LogoGithub from "carbon-icons-svelte/lib/LogoGithub.svelte";
@@ -128,12 +129,8 @@
                 </div>
             </section>
 
-            <div class="hero-image">
-                <ImageCard
-                    link="/some-page"
-                    imageUrl="/assets/irises.png"
-                    title="Our Vision"
-                />
+            <div class="hero-pattern">
+                <SpacerRectangle />
             </div>
         </div>
 
@@ -150,21 +147,27 @@
         </section>
 
         <!-- Who We Are Section -->
-        <section class="content-section">
-            <h2>Who We Are</h2>
-            <p>
-                Noetic Labs is a student-led innovation lab exploring the
-                frontiers of AI, technology, and human connection. We're
-                passionate about making AI more accessible and impactful through
-                innovative research and thoughtful implementation.
-            </p>
-            <p>
-                Founded in early 2025, our team combines expertise in machine
-                learning, design thinking, and software development to create
-                solutions that bridge the gap between cutting-edge AI
-                capabilities and real-world human needs.
-            </p>
-            <Button kind="primary" href="/about">Learn More About Us</Button>
+        <section class="content-section who-we-are">
+            <div class="who-we-are-pattern">
+                <SpacerRectangle />
+            </div>
+            <div class="who-we-are-content">
+                <h2>Who We Are</h2>
+                <p>
+                    Noetic Labs is a student-led innovation lab exploring the
+                    frontiers of AI, technology, and human connection. We're
+                    passionate about making AI more accessible and impactful
+                    through innovative research and thoughtful implementation.
+                </p>
+                <p>
+                    Founded in early 2025, our team combines expertise in
+                    machine learning, design thinking, and software development
+                    to create solutions that bridge the gap between cutting-edge
+                    AI capabilities and real-world human needs.
+                </p>
+                <Button kind="primary" href="/about">Learn More About Us</Button
+                >
+            </div>
         </section>
 
         <!-- Projects Section -->
@@ -259,6 +262,7 @@
         font-weight: 500;
         position: sticky;
         top: 0;
+        margin-top: 1rem;
         z-index: 100;
     }
 
@@ -368,9 +372,11 @@
         justify-content: space-between;
     }
 
-    .hero-image {
+    .hero-pattern {
         flex: 1;
-        max-width: 600px; /* Optional: adjusts card width */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-title {
@@ -448,6 +454,21 @@
     p {
         color: var(--nlds-text-secondary);
         line-height: 1.6;
+    }
+
+    /* Who We Are section with pattern */
+    .who-we-are {
+        display: flex;
+        gap: 2rem;
+        align-items: stretch;
+    }
+
+    .who-we-are-pattern {
+        flex: 1;
+    }
+
+    .who-we-are-content {
+        flex: 3;
     }
 
     /* Projects section */
@@ -531,10 +552,11 @@
             flex-direction: column;
         }
 
-        .hero-image {
-            width: 100%;
+        .hero-pattern {
+            /* width: 100%;
             max-width: 100%;
-            order: -1; /* Optional: this puts the image above the text on mobile */
+            order: -1; */
+            display: none;
         }
 
         .hero-content {
@@ -543,6 +565,14 @@
 
         .hero-actions {
             justify-content: flex-start;
+        }
+
+        .who-we-are {
+            flex-direction: column;
+        }
+
+        .who-we-are-pattern {
+            display: none;
         }
 
         .projects-grid {
