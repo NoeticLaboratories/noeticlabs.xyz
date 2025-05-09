@@ -4,6 +4,7 @@
     import { Button } from "@noeticlabs/nlds-svelte";
     import ImageCard from "$lib/components/ImageCard/ImageCard.svelte";
     import SpacerRectangle from "$lib/components/SpacerRectangle/SpacerRectangle.svelte";
+    import Footer from "$lib/components/Footer/Footer.svelte";
 
     // Import carbon icons
     import LogoGithub from "carbon-icons-svelte/lib/LogoGithub.svelte";

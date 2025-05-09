@@ -5,6 +5,37 @@
         <link rel="icon" href="%sveltekit.assets%/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         %sveltekit.head%
+
+        <script>
+            (function () {
+                const STORAGE_KEY = "preferred-theme";
+
+                // Get theme from storage
+                let theme = localStorage.getItem(STORAGE_KEY);
+
+                // Validate theme
+                if (
+                    !theme ||
+                    !["white", "b10", "b80", "b90", "b100"].includes(theme)
+                ) {
+                    // Check system preference
+                    if (
+                        window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches
+                    ) {
+                        theme = "b100";
+                    } else {
+                        theme = "white";
+                    }
+                    // Save for future
+                    localStorage.setItem(STORAGE_KEY, theme);
+                }
+
+                // Apply theme immediately
+                document.documentElement.setAttribute("data-theme", theme);
+            })();
+        </script>
     </head>
     <body data-sveltekit-preload-data="hover">
         <div style="display: contents">%sveltekit.body%</div>

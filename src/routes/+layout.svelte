@@ -3,13 +3,6 @@
     import "../app.css";
 
     import Topbar from "$lib/components/Topbar/Topbar.svelte";
-
-    import { browser } from "$app/environment";
-    import { applyInitialTheme } from "$lib/stores/themeStore.js";
-
-    if (browser) {
-        applyInitialTheme();
-    }
 </script>
 
 <Topbar />

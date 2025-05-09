@@ -3,7 +3,7 @@
 
     import { Select } from "@noeticlabs/nlds-svelte";
 
-    import { theme, applyInitialTheme } from "$lib/stores/themeStore.js";
+    import { theme } from "$lib/stores/themeStore.js";
 
     // Options for the theme selector
     const themeOptions = [
@@ -21,8 +21,6 @@
     let state = "normal"; // 'normal', 'hidden', or 'visible'
 
     onMount(() => {
-        applyInitialTheme();
-
         topbarHeight = topbarRef.offsetHeight;
 
         const handleScroll = () => {
