@@ -13,6 +13,7 @@
     import Rocket from "carbon-icons-svelte/lib/Rocket.svelte";
     import SearchAdvanced from "carbon-icons-svelte/lib/SearchAdvanced.svelte";
     import Model from "carbon-icons-svelte/lib/Model.svelte";
+    import DataBlob from "carbon-icons-svelte/lib/DataBlob.svelte";
 
     // Social media links with icons
     const socialLinks = [
@@ -41,7 +42,7 @@
             date: "May 8, 2025",
             summary:
                 "Introducing Lumen, our first LLM specialized in assisting with research",
-            url: "/news/ai-model-launch",
+            url: "https://huggingface.co/NoeticLabs/Lumen-8b-05-2025",
         },
         {
             id: "NLDS",
@@ -59,10 +60,19 @@
             id: "lumen-8b-05-2025",
             title: "Lumen-8b-05-2025",
             description:
-                "Our first fine-tuned AI language model, specifically optimized for academic research and complex reasoning tasks. Built on Qwen3-8B with specialized datasets for enhanced performance.",
+                "Our first fine-tuned AI language model, specifically optimized for academic research. Built on Qwen3-8B with specialized datasets for enhanced performance.",
             status: "Available Now",
             icon: Model,
             url: "https://huggingface.co/NoeticLabs/Lumen-8b-05-2025",
+        },
+        {
+            id: "academic-Chains",
+            title: "Academic Reasoning and Intuition Chains Dataset",
+            description:
+                "A dataset generating by distilling reasoning chains from academic papers.",
+            status: "Available Now",
+            icon: DataBlob,
+            url: "https://huggingface.co/datasets/marcodsn/academic-chains",
         },
         {
             id: "NLDS",

@@ -56,6 +56,13 @@
 <header class="topbar state-{state}" bind:this={topbarRef}>
     <div class="topbar-content">
         <div class="topbar-left">
+            <div class="icon">
+                <img
+                    src="/iris-0.png"
+                    alt="Noetic Labs Logo"
+                    class="logo-icon"
+                />
+            </div>
             <div class="logo">
                 <h1>Noetic Labs</h1>
             </div>
@@ -126,6 +133,18 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+
+    .icon {
+        /* display: flex; */
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-icon {
+        width: 25px;
+        height: 25px;
     }
 
     .logo {
